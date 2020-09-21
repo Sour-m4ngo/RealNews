@@ -1,23 +1,16 @@
 /**
  * Copyright 2020 bejson.com
  */
-package com.example.realnews.Bean;
+package com.example.realnews.Bean.ApiBean;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-/**
- * Auto-generated: 2020-08-31 1:49:46
- *
- * @author bejson.com (i@bejson.com)
- * @website http://www.bejson.com/java2pojo/
- */
 public class DailyWeatherDetail {
-
     private String code;
-    private Date updateTime;
-    private String fxLink;
-    private List<Daily> daily;
+    private Date updatetime;
+    private String fxlink;
     private Refer refer;
+    private ArrayList<Daily> daily;
     public void setCode(String code) {
         this.code = code;
     }
@@ -26,23 +19,23 @@ public class DailyWeatherDetail {
     }
 
     public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+        this.updatetime = updateTime;
     }
     public Date getUpdateTime() {
-        return updateTime;
+        return updatetime;
     }
 
     public void setFxLink(String fxLink) {
-        this.fxLink = fxLink;
+        this.fxlink = fxLink;
     }
     public String getFxLink() {
-        return fxLink;
+        return fxlink;
     }
 
-    public void setDaily(List<Daily> daily) {
+    public void setDaily(ArrayList<Daily> daily) {
         this.daily = daily;
     }
-    public List<Daily> getDaily() {
+    public ArrayList<Daily> getDaily() {
         return daily;
     }
 

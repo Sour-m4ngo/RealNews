@@ -1,4 +1,4 @@
-package com.example.realnews.Bean;
+package com.example.realnews.Bean.ApiBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -133,7 +133,6 @@ public class CityInfo {
         }
 
     }
-//    private String getCityLocationId (){
-//        String id = location.get()
-//    }
+
+
 }

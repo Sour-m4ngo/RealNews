@@ -1,7 +1,7 @@
 /**
  * Copyright 2020 bejson.com
  */
-package com.example.realnews.Bean;
+package com.example.realnews.Bean.ApiBean;
 import java.util.Date;
 
 /**

@@ -6,12 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".WeatherMVP.WeatherFragment"
     android:orientation="vertical"
-    android:background="#DCDCDC">
+    android:background="@drawable/night01"
+    >
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <Button
             android:id="@+id/btn_select_city"
@@ -26,77 +28,87 @@
             app:layout_constraintVertical_bias="0.023" />
 
 
-
         <TextView
             android:id="@+id/tv_city_name"
+            style="@style/weatherInfo"
             android:layout_width="181dp"
             android:layout_height="96dp"
             android:gravity="center"
             android:text="城市名字"
             android:textSize="40dp"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.114" />
+            app:layout_constraintVertical_bias="0.113" />
 
         <TextView
             android:id="@+id/tv_temperature"
-            android:layout_width="176dp"
-            android:layout_height="93dp"
+            style="@style/weatherInfo"
+            android:layout_width="179dp"
+            android:layout_height="92dp"
             android:gravity="center"
             android:text="当前气温"
             android:textSize="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.008"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.738" />
+            app:layout_constraintVertical_bias="0.262" />
 
         <TextView
             android:id="@+id/tv_weather_like"
+            style="@style/weatherInfo"
             android:layout_width="176dp"
             android:layout_height="43dp"
             android:gravity="center"
             android:text="天气情况"
             android:textSize="20dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.817" />
+            app:layout_constraintVertical_bias="0.678" />
 
         <TextView
             android:id="@+id/tv_feelsLike"
-            android:layout_width="226dp"
-            android:layout_height="41dp"
-            android:layout_marginTop="564dp"
+            style="@style/weatherInfo"
+            android:layout_width="174dp"
+            android:layout_height="44dp"
             android:gravity="center"
             android:text="体感温度"
             android:textSize="20dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.951"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_weather_like"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/tv_wind_dir_scale"
-            android:layout_width="214dp"
-            android:layout_height="83dp"
+            style="@style/weatherInfo"
+            android:layout_width="237dp"
+            android:layout_height="89dp"
             android:gravity="center"
             android:text="风向风力等级"
             android:textSize="20dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.894"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.735" />
+            app:layout_constraintVertical_bias="0.728" />
 
         <TextView
             android:id="@+id/tv_head"
@@ -114,30 +126,414 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.002" />
+        <!-- 用于显示周一至周日-->
 
-        <ImageView
-            android:id="@+id/ima_test"
-            android:layout_width="97dp"
-            android:layout_height="63dp"
+
+
+        <LinearLayout
+            android:id="@+id/day_week_text_layout"
+            android:layout_width="409dp"
+            android:layout_height="37dp"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.905" />
+            app:layout_constraintTop_toTopOf="@+id/tv_head"
+            app:layout_constraintVertical_bias="0.798">
 
-        <TextView
+            <TextView
+                android:id="@+id/day_in_week01"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="today"
+                style="@style/weekday"/>
+            <TextView
+                android:id="@+id/day_in_week02"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="today+1"
+                style="@style/weekday"/>
+            <TextView
+                android:id="@+id/day_in_week03"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="today+2"
+                style="@style/weekday"/>
+            <TextView
+                android:id="@+id/day_in_week04"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="today+3"
+                style="@style/weekday"/>
+            <TextView
+                android:id="@+id/day_in_week05"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="today+4"
+                style="@style/weekday"/>
+            <TextView
+                android:id="@+id/day_in_week06"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="today+5"
+                style="@style/weekday"/>
+            <TextView
+                android:id="@+id/day_in_week07"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="today+6"
+                style="@style/weekday"/>
 
-            android:id="@+id/tv_test"
-            android:layout_width="137dp"
-            android:layout_height="54dp"
-            android:layout_marginBottom="40dp"
+        </LinearLayout>
+        <!--用于显示日期-->
+        <LinearLayout
+            android:id="@+id/date_layout"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.354"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.949" />
+            app:layout_constraintTop_toTopOf="@+id/tv_head"
+            app:layout_constraintVertical_bias="0.836">
+            <TextView
+                android:id="@+id/date01"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="date"
+                style="@style/weekday"
+                />
+            <TextView
+                android:id="@+id/date02"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="date"
+                style="@style/weekday"
+                />
+            <TextView
+                android:id="@+id/date03"
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="date"
+                style="@style/weekday"
+                />
+            <TextView
+                android:id="@+id/date04"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="date"
+                style="@style/weekday"
+                />
+            <TextView
+                android:id="@+id/date05"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="date"
+                style="@style/weekday"
+                />
+            <TextView
+                android:id="@+id/date06"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="date"
+                style="@style/weekday"
+                />
+            <TextView
+                android:id="@+id/date07"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="date"
+                style="@style/weekday"
+                />
+
+
+        </LinearLayout>
+
+        <!--天气图标显示-->
+        <LinearLayout
+            android:id="@+id/weather_icon_layout"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_head"
+            app:layout_constraintVertical_bias="0.872">
+
+            <ImageView
+                android:id="@+id/weather_icon01"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/weekday_icon"/>
+            <ImageView
+                android:id="@+id/weather_icon02"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/weekday_icon"/>
+            <ImageView
+                android:id="@+id/weather_icon03"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/weekday_icon"/>
+            <ImageView
+                android:id="@+id/weather_icon04"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/weekday_icon"/>
+            <ImageView
+                android:id="@+id/weather_icon05"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/weekday_icon"/>
+            <ImageView
+                android:id="@+id/weather_icon06"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/weekday_icon"/>
+            <ImageView
+                android:id="@+id/weather_icon07"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                style="@style/weekday_icon"/>
+        </LinearLayout>
+        <!--天气情况描述-->
+        <LinearLayout
+            android:id="@+id/weather_like_layout"
+            android:layout_width="411dp"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_head"
+            app:layout_constraintVertical_bias="0.913">
+
+            <TextView
+                android:id="@+id/weather_like01"
+                style="@style/weatherInfo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text=" 晴天 " />
+
+            <TextView
+                android:id="@+id/weather_like02"
+                style="@style/weatherInfo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text=" 晴天 " />
+
+            <TextView
+                android:id="@+id/weather_like03"
+                style="@style/weatherInfo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text=" 晴天 " />
+
+            <TextView
+                android:id="@+id/weather_like04"
+                style="@style/weatherInfo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text=" 晴天 " />
+
+            <TextView
+                android:id="@+id/weather_like05"
+                style="@style/weatherInfo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text=" 晴天 " />
+
+            <TextView
+                android:id="@+id/weather_like06"
+                style="@style/weatherInfo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text=" 晴天 " />
+
+            <TextView
+                android:id="@+id/weather_like07"
+                style="@style/weatherInfo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text=" 晴天 " />
+
+        </LinearLayout>
+        <!--当天最高气温-->
+        <LinearLayout
+            android:id="@+id/max_temperature_layout"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weather_like_layout"
+            app:layout_constraintVertical_bias="0.0">
+            <TextView
+                android:id="@+id/current_max_temperature01"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="max"
+                style="@style/weatherInfo"
+                />
+            <TextView
+                android:id="@+id/current_max_temperature02"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="max"
+                style="@style/weatherInfo"
+                />
+            <TextView
+                android:id="@+id/current_max_temperature03"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="max"
+                style="@style/weatherInfo"
+                />
+            <TextView
+                android:id="@+id/current_max_temperature04"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="max"
+                style="@style/weatherInfo"
+                />
+            <TextView
+                android:id="@+id/current_max_temperature05"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="max"
+                style="@style/weatherInfo"
+                />
+            <TextView
+                android:id="@+id/current_max_temperature06"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="max"
+                style="@style/weatherInfo"
+                />
+            <TextView
+                android:id="@+id/current_max_temperature07"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="max"
+                style="@style/weatherInfo"
+                />
+        </LinearLayout>
+        <!--当天最低气温-->
+        <LinearLayout
+            android:id="@+id/min_temperature_layout"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/max_temperature_layout"
+            app:layout_constraintVertical_bias="0.0">
+            <TextView
+                android:id="@+id/current_min_temperature01"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="min"
+                style="@style/weatherInfo"
+                />
+            <TextView
+                android:id="@+id/current_min_temperature02"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="min"
+                style="@style/weatherInfo"
+                />
+            <TextView
+                android:id="@+id/current_min_temperature03"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="min"
+                style="@style/weatherInfo"
+                />
+            <TextView
+                android:id="@+id/current_min_temperature04"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="min"
+                style="@style/weatherInfo"
+                />
+            <TextView
+                android:id="@+id/current_min_temperature05"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="min"
+                style="@style/weatherInfo"
+                />
+            <TextView
+                android:id="@+id/current_min_temperature06"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="min"
+                style="@style/weatherInfo"
+                />
+            <TextView
+                android:id="@+id/current_min_temperature07"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="min"
+                style="@style/weatherInfo"
+                />
+
+        </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </LinearLayout>

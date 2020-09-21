@@ -1,4 +1,4 @@
-package com.example.realnews.Bean;;
+package com.example.realnews.Bean.ApiBean;;
 import java.util.List;
 
 /**

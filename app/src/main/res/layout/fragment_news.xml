@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".NewsMVP.NewsFragment"
     android:orientation="vertical"
-    android:background="#DCDCDC"
     >
     <TextView
         android:id="@+id/tv_head"

@@ -3,13 +3,13 @@ package com.example.realnews.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.realnews.Bean.CityWeatherInfo;
+
+import com.example.realnews.Bean.DataBaseBean.CityBaseInfoBean;
 import com.example.realnews.R;
 
 import java.util.ArrayList;
@@ -18,10 +18,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CityWeatherInfoAdapter extends RecyclerView.Adapter<CityWeatherInfoAdapter.ViewHolder> {
-    private ArrayList<CityWeatherInfo> CityWeatherList;
+    private ArrayList<CityBaseInfoBean> CityWeatherList ;
 
-    public CityWeatherInfoAdapter(ArrayList<CityWeatherInfo> cityWeatherList) {
-        CityWeatherList = cityWeatherList;
+    public CityWeatherInfoAdapter(ArrayList<CityBaseInfoBean> List) {
+        CityWeatherList = List;
     }
 
     @NonNull
@@ -34,9 +34,8 @@ public class CityWeatherInfoAdapter extends RecyclerView.Adapter<CityWeatherInfo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.CityName.setText("test");
-            holder.CurrentWeather.setText("test");
-            holder.imaWeatherIcon.setBackgroundResource(R.drawable.add);
+        holder.DistrivtName.setText(CityWeatherList.get(position).getDistrictName());
+        holder.CityName.setText(CityWeatherList.get(position).getCityName());
     }
 
     @Override
@@ -45,12 +44,11 @@ public class CityWeatherInfoAdapter extends RecyclerView.Adapter<CityWeatherInfo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.tv_city_name_adapter)
+        @BindView(R.id.tv_district_name)
+        TextView DistrivtName;
+        @BindView(R.id.tv_city_name_adm2)
         TextView CityName;
-        @BindView(R.id.tv_current_weather)
-        TextView CurrentWeather;
-        @BindView(R.id.ima_weather_icon)
-        ImageView imaWeatherIcon;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);

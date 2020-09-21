@@ -1,12 +1,9 @@
 package com.example.realnews.NewsMVP;
 
 
-import android.util.Log;
-import android.widget.Toast;
-
 import com.example.realnews.BaseMVP.BasePresenter;
-import com.example.realnews.Bean.Detail;
-import com.example.realnews.Bean.NewsDetails;
+import com.example.realnews.Bean.ApiBean.Detail;
+import com.example.realnews.Bean.ApiBean.NewsDetails;
 import com.example.realnews.MainContract;
 import com.example.realnews.Util.RxJavaUtil;
 
@@ -19,12 +16,10 @@ import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Consumer;
 
-import static android.content.ContentValues.TAG;
-
 
 public class NewsApplyPresenter extends BasePresenter<MainContract.IViewNewsFragment, NewsApplyModel> implements MainContract.IMainPresenter {
     NewsDetails mNewsDetails ;
-    public void HandleData(){
+    public void HandleData(String arg1){
 
         Observable observable = getmModel().request().doOnSubscribe(new Consumer<Disposable>() {
             @Override
@@ -60,11 +55,6 @@ public class NewsApplyPresenter extends BasePresenter<MainContract.IViewNewsFrag
 
             }
         });
-    }
-
-    @Override
-    public void Subscribe() {
-
     }
 
     @Override

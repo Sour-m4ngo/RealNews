@@ -1,9 +1,8 @@
 package com.example.realnews.WeatherMVP;
 
 import com.example.realnews.BaseMVP.BasePresenter;
-import com.example.realnews.Bean.CityInfo;
-import com.example.realnews.Bean.Now;
-import com.example.realnews.Bean.NowWeatherDetail;
+import com.example.realnews.Bean.ApiBean.CityInfo;
+
 import com.example.realnews.MainContract;
 import com.example.realnews.Util.RxJavaUtil;
 
@@ -13,11 +12,11 @@ import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Consumer;
 
-public class CityApplyPressenter extends BasePresenter<MainContract.IMainViewActivity, CityApplyModel> implements MainContract.IMainPresenter {
+public class CityApplyPressenter extends BasePresenter<MainContract.IViewWeatherView, CityApplyModel> implements MainContract.IPressenterCitySearch {
     CityInfo cityInfo;
-    private String location;
+
     @Override
-    public void HandleData() {
+    public void HandleData(String location) {
         Observable observable = getmModel().getCityInfo(location).doOnSubscribe(new Consumer<Disposable>() {
             @Override
             public void accept(Disposable disposable) throws Throwable {
@@ -39,28 +38,22 @@ public class CityApplyPressenter extends BasePresenter<MainContract.IMainViewAct
 
             @Override
             public void onError(@NonNull Throwable e) {
-                getView().show("失败");
+
             }
 
             @Override
             public void onComplete() {
-                //getView().show(cityInfo.getLocation());
+                getView().getCityId(cityInfo.getLocation().get(0).getId());
             }
         });
     }
 
-    @Override
-    public void Subscribe() {
 
-    }
 
     @Override
     public void subscribe() {
 
     }
 
-    public void searchCity(String location){
-        this.location = location;
-        HandleData();
-    }
+
 }

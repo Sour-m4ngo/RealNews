@@ -7,5 +7,20 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <style name="weatherInfo">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="weatherInfo2">
+        <item name="android:textColor">#000000</item>
+    </style>
+    <style name="weekday">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="weekday_icon">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:src">@drawable/add</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>

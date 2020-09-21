@@ -4,40 +4,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
-
 import android.os.Handler;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
-
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestManager;
 import com.example.realnews.BaseMVP.BaseFragment;
-import com.example.realnews.Bean.Detail;
+import com.example.realnews.Bean.ApiBean.Detail;
 import com.example.realnews.Util.InjectPresenter;
 import com.example.realnews.MainContract;
 import com.example.realnews.R;
 import com.example.realnews.adapter.NewsAdapter;
 import com.yanzhenjie.recyclerview.OnItemClickListener;
 import com.yanzhenjie.recyclerview.SwipeRecyclerView;
-
 import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
-import butterknife.OnClick;
-
 import static android.content.ContentValues.TAG;
 
 
@@ -109,7 +92,7 @@ public class NewsFragment extends BaseFragment implements MainContract.IViewNews
     @Override
     public void onResume() {
         super.onResume();
-        mPresenter.HandleData();
+        mPresenter.HandleData(null);
         Log.d(TAG, "pppppppppppppppppppppppppppppppp");
         RefreshData();
     }
@@ -149,7 +132,7 @@ public class NewsFragment extends BaseFragment implements MainContract.IViewNews
             public void onRefresh() {
                 //被刷新时的操作
                 //更新UI
-                mPresenter.HandleData();
+                mPresenter.HandleData(null);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

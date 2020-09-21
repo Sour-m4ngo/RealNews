@@ -1,18 +1,8 @@
-package com.example.realnews.Bean;
+package com.example.realnews.Bean.ApiBean;
 import java.util.Date;
-
-/**
- * Auto-generated: 2020-08-30 16:14:39
- *
- * @author http://www.itjson.com 
- * @website http://www.itjson.com/itjson/json2java.html 
- */
 public class NowWeatherDetail {
-
     private String code;
-
     private Date updatetime;
-
     private String fxlink;
     private Now now;
     private Refer refer;

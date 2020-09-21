@@ -2,7 +2,7 @@ package com.example.realnews.NewsMVP;
 
 
 import com.example.realnews.BaseMVP.BaseModel;
-import com.example.realnews.Bean.NewsDetails;
+import com.example.realnews.Bean.ApiBean.NewsDetails;
 import com.example.realnews.Api;
 import com.example.realnews.MainContract;
 import com.example.realnews.Util.RxNewsService;

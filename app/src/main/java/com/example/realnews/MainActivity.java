@@ -10,13 +10,10 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.realnews.BaseMVP.BaseActivity;
-import com.example.realnews.Bean.Detail;
 import com.example.realnews.NewsMVP.NewsFragment;
 import com.example.realnews.NoteMVP.NoteFragment;
 import com.example.realnews.Util.InjectPresenter;
-import com.example.realnews.MainContract;
 import com.example.realnews.NewsMVP.NewsApplyPresenter;
-import com.example.realnews.R;
 import com.example.realnews.WeatherMVP.WeatherFragment;
 import com.example.realnews.adapter.FragmentAdapter;
 import com.google.android.material.tabs.TabLayout;
@@ -69,10 +66,6 @@ public class MainActivity extends BaseActivity implements MainContract.IMainView
         return view;
     }
 
-    @Override
-    public void show(String s) {
-
-    }
 
 
     static
