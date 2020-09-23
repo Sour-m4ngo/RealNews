@@ -5,4 +5,5 @@
           新闻功能：已实现，使用极速数据新闻API
 实机截图：
 ![image](https://github.com/Sour-m4ngo/RealNews/tree/master/app/screenShot/Screenshot_20200923-110316.jpg)
+
 ![image](https://github.com/Sour-m4ngo/RealNews/tree/master/app/screenShot/Screenshot_20200923-110319.jpg)
